@@ -40,3 +40,8 @@
 125 vehicle flyer hover transport12 bs3 hp3 front12 side12 rear10 multilaser hellstrike hellstrike extra_armour grav_chute_insertion #Valkyrie
 170 vehicle flyer hover transport6 bs3 hp3 front12 side12 rear10 twin_linked_lascannon twin_linked_lascannon twin_linked_lascannon extra_armour grav_chute_insertion #Vendetta
 150 vehicle tank heavy bs3 front14 side13 rear10 hp3 battle_cannon heavy_bolter #Leman Russ Battle Tank
+70 vehicle tank opentopped bs3 front12 side10 rear10 hp3 twin_linked_hydra_autocannon twin_linked_hydra_autocannon heavy_bolter #Hydra
+125 vehicle tank opentopped bs3 front12 side10 rear10 hp3 heavy_bolter earthshaker #Basilisk
+65 vehicle tank opentopped bs3 front12 side10 rear10 hp3 twin_linked_stormshard_mortar twin_linked_stormshard_mortar heavy_bolter #Wyvern
+170 vehicle tank bs3 front12 side10 rear10 hp3 storm_eagle_rockets heavy_bolter #Manticore
+160 vehicle tank bs3 front12 side10 rear10 hp3 deathstrike_missile heavy_bolter #Deathstrike
