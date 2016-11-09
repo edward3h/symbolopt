@@ -1,3 +1,11 @@
+# Data file for symbolopt
+# Blank lines and anything after a # is ignored, so you can write comments like this.
+
+# If a line starts with a number, that is a target result. The rest of the line is broken at whitespace into symbols, 
+# and the program will attempt to make the value of each symbol such that they add up to the target results (or as close
+# as it can get).
+
+# If a line starts with a '>', that is an ordering constraint. The symbols after it are in order such that each should have a progressively smaller value.
 
 # Codex Space Marines
 
