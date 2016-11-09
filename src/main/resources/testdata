@@ -46,3 +46,7 @@
 65 vehicle tank opentopped bs3 front12 side10 rear10 hp3 twin_linked_stormshard_mortar twin_linked_stormshard_mortar heavy_bolter #Wyvern
 170 vehicle tank bs3 front12 side10 rear10 hp3 storm_eagle_rockets heavy_bolter #Manticore
 160 vehicle tank bs3 front12 side10 rear10 hp3 deathstrike_missile heavy_bolter #Deathstrike
+
+# Codex Harlequins
+75 vehicle skimmer fast opentopped bs4 front10 side10 rear10 hp2 haywire_cannon shuriken_cannon shuriken_cannon holo_fields mirage_launchers fear #Voidweaver
+70 vehicle skimmer fast opentopped bs4 front10 side10 rear10 hp2 shuriken_cannon shuriken_cannon holo_fields mirage_launchers fear transport6 #Starweaver
