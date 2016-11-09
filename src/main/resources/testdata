@@ -1,0 +1,19 @@
+35 vehicle tank front11 side11 rear10 bs4 storm_bolter repair transport10 firepoints2 accessside accessrear #Rhino base
+55 vehicle tank front11 side11 rear10 bs4 twin_linked_heavy_bolter transport6 accessside accessrear #Razorback base
+75 vehicle tank front13 side11 rear10 bs4 autocannon #Predator base
+120 vehicle tank front13 side11 rear10 bs4 demolisher #Vindicator base
+70 vehicle tank front12 side12 rear10 bs4 skyspear #Hunter
+65 vehicle tank front11 side11 rear10 bs4 whirlwind #Whirlwind
+75 vehicle tank front12 side12 rear10 bs4 icarus_stormcannon #Stalker
+250 vehicle tank front14 side14 rear14 bs4 twin_linked_lascannon twin_linked_lascannon twin_linked_heavy_bolter transport10 assault_vehicle accessfront accessside potms #Land Raider
+240 vehicle tank front14 side14 rear14 bs4 twin_linked_lascannon flamestorm flamestorm twin_linked_assault_cannon transport12 assault_vehicle frag_launcher accessfront accessside potms  #Land Raider Redeemer
+250 vehicle tank front14 side14 rear14 bs4 twin_linked_lascannon twin_linked_hurricane_bolter twin_linked_hurricane_bolter twin_linked_assault_cannon transport16 assault_vehicle frag_launcher accessfront accessside potms  #Land Raider Crusader
+> front14 front13 front12 front11
+> side14 side12 side11 side10
+> rear14 rear10
+> transport16 transport12 transport10 transport6
+65 vehicle tank front12 side10 rear10 bs3 multilaser heavy_bolter transport10 firepoints2 lasgun_array accessrear amphibious #Chimera base
+> bs4 bs3
+> twin_linked_heavy_bolter heavy_bolter storm_bolter
+> twin_linked_hurricane_bolter storm_bolter
+50 vehicle front11 side10 rear10 bs3 autocannon dozerblade firepoints2 accessside accessrear transport10 #Taurox base
