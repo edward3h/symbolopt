@@ -21,7 +21,7 @@
 250 vehicle tank front14 side14 rear14 bs4 hp4 twin_linked_hurricane_bolter twin_linked_hurricane_bolter twin_linked_assault_cannon transport16 assault_vehicle frag_launcher accessfront accessside potms  #Land Raider Crusader
 > front14 front13 front12 front11 front10
 > side14 side13 side12 side11 side10
-> rear14 rear10
+> rear14 rear11 rear10
 > transport16 transport12 transport10 transport6
 
 # Codex Astra Militarum
@@ -40,6 +40,7 @@
 125 vehicle flyer hover transport12 bs3 hp3 front12 side12 rear10 multilaser hellstrike hellstrike extra_armour grav_chute_insertion #Valkyrie
 170 vehicle flyer hover transport6 bs3 hp3 front12 side12 rear10 twin_linked_lascannon twin_linked_lascannon twin_linked_lascannon extra_armour grav_chute_insertion #Vendetta
 150 vehicle tank heavy bs3 front14 side13 rear10 hp3 battle_cannon heavy_bolter #Leman Russ Battle Tank
+170 vehicle tank heavy bs3 front14 side13 rear11 hp3 demolisher heavy_bolter #Leman Russ Demolisher
 70 vehicle tank opentopped bs3 front12 side10 rear10 hp3 twin_linked_hydra_autocannon twin_linked_hydra_autocannon heavy_bolter #Hydra
 125 vehicle tank opentopped bs3 front12 side10 rear10 hp3 heavy_bolter earthshaker #Basilisk
 65 vehicle tank opentopped bs3 front12 side10 rear10 hp3 twin_linked_stormshard_mortar twin_linked_stormshard_mortar heavy_bolter #Wyvern
