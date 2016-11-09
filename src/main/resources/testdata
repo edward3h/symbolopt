@@ -1,19 +1,34 @@
-35 vehicle tank front11 side11 rear10 bs4 storm_bolter repair transport10 firepoints2 accessside accessrear #Rhino base
-55 vehicle tank front11 side11 rear10 bs4 twin_linked_heavy_bolter transport6 accessside accessrear #Razorback base
-75 vehicle tank front13 side11 rear10 bs4 autocannon #Predator base
-120 vehicle tank front13 side11 rear10 bs4 demolisher #Vindicator base
-70 vehicle tank front12 side12 rear10 bs4 skyspear #Hunter
-65 vehicle tank front11 side11 rear10 bs4 whirlwind #Whirlwind
-75 vehicle tank front12 side12 rear10 bs4 icarus_stormcannon #Stalker
-250 vehicle tank front14 side14 rear14 bs4 twin_linked_lascannon twin_linked_lascannon twin_linked_heavy_bolter transport10 assault_vehicle accessfront accessside potms #Land Raider
-240 vehicle tank front14 side14 rear14 bs4 twin_linked_lascannon flamestorm flamestorm twin_linked_assault_cannon transport12 assault_vehicle frag_launcher accessfront accessside potms  #Land Raider Redeemer
-250 vehicle tank front14 side14 rear14 bs4 twin_linked_lascannon twin_linked_hurricane_bolter twin_linked_hurricane_bolter twin_linked_assault_cannon transport16 assault_vehicle frag_launcher accessfront accessside potms  #Land Raider Crusader
-> front14 front13 front12 front11
-> side14 side12 side11 side10
+
+# Codex Space Marines
+
+35 vehicle tank front11 side11 rear10 bs4 hp3 storm_bolter repair transport10 firepoints2 accessside accessrear #Rhino base
+55 vehicle tank front11 side11 rear10 bs4 hp3 twin_linked_heavy_bolter transport6 accessside accessrear #Razorback base
+75 vehicle tank front13 side11 rear10 bs4 hp3 autocannon #Predator base
+120 vehicle tank front13 side11 rear10 bs4 hp3 demolisher #Vindicator base
+70 vehicle tank front12 side12 rear10 bs4 hp3 skyspear #Hunter
+65 vehicle tank front11 side11 rear10 bs4 hp3 whirlwind #Whirlwind
+75 vehicle tank front12 side12 rear10 bs4 hp3 icarus_stormcannon #Stalker
+250 vehicle tank front14 side14 rear14 bs4 hp4 twin_linked_lascannon twin_linked_lascannon twin_linked_heavy_bolter transport10 assault_vehicle accessfront accessside potms #Land Raider
+240 vehicle tank front14 side14 rear14 bs4 hp4 flamestorm flamestorm twin_linked_assault_cannon transport12 assault_vehicle frag_launcher accessfront accessside potms  #Land Raider Redeemer
+250 vehicle tank front14 side14 rear14 bs4 hp4 twin_linked_hurricane_bolter twin_linked_hurricane_bolter twin_linked_assault_cannon transport16 assault_vehicle frag_launcher accessfront accessside potms  #Land Raider Crusader
+> front14 front13 front12 front11 front10
+> side14 side13 side12 side11 side10
 > rear14 rear10
 > transport16 transport12 transport10 transport6
-65 vehicle tank front12 side10 rear10 bs3 multilaser heavy_bolter transport10 firepoints2 lasgun_array accessrear amphibious #Chimera base
+
+# Codex Astra Militarum
+
+65 vehicle tank front12 side10 rear10 bs3 hp3 multilaser heavy_bolter transport10 firepoints2 lasgun_array accessrear amphibious #Chimera base
 > bs4 bs3
 > twin_linked_heavy_bolter heavy_bolter storm_bolter
 > twin_linked_hurricane_bolter storm_bolter
-50 vehicle front11 side10 rear10 bs3 autocannon dozerblade firepoints2 accessside accessrear transport10 #Taurox base
+> twin_linked_autocannon autocannon
+> hp4 hp3 hp2
+50 vehicle front11 side10 rear10 bs3 hp3 twin_linked_autocannon dozerblade firepoints2 firepoints2 accessside accessrear transport10 #Taurox base
+80 vehicle fast front11 side10 rear10 bs4 hp3 taurox_cannon twin_linked_hotshot_volley_gun dozerblade firepoints2 firepoints2 accessside accessrear transport10 #Taurox Prime base
+35 vehicle walker opentopped front10 side10 rear10 bs3 hp2 multilaser scout move_through_cover ws3 s5 i3 a1 #Scout Sentinel
+40 vehicle walker front12 side10 rear10 bs3 hp2 multilaser ws3 s5 i3 a1 #Armoured Sentinel
+125 vehicle tank fast front12 side12 rear10 bs3 hp3 heavy_bolter inferno_cannon #Hellhound
+125 vehicle flyer hover transport12 bs3 hp3 front12 side12 rear10 multilaser hellstrike hellstrike extra_armour grav_chute_insertion #Valkyrie
+170 vehicle flyer hover transport6 bs3 hp3 front12 side12 rear10 twin_linked_lascannon twin_linked_lascannon twin_linked_lascannon extra_armour grav_chute_insertion #Vendetta
+150 vehicle tank heavy bs3 front14 side13 rear10 hp3 battle_cannon heavy_bolter #Leman Russ Battle Tank
