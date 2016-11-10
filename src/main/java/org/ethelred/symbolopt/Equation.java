@@ -26,7 +26,7 @@ public class Equation implements Constraint
         return symbols.elementSet();
     }
 
-    public int calculateScore(Map<Symbol, Integer> symbolIntegerMap)
+    public double calculateScore(Map<Symbol, Integer> symbolIntegerMap)
     {
         int sum = 0;
         for (Symbol symbol: symbols)
@@ -34,5 +34,11 @@ public class Equation implements Constraint
             sum += symbolIntegerMap.get(symbol);
         }
         return Math.abs(result - sum);
+    }
+
+    @Override
+    public double getWeight()
+    {
+        return 1;
     }
 }

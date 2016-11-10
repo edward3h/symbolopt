@@ -1,5 +1,7 @@
 package org.ethelred.symbolopt;
 
+import com.google.common.collect.HashMultiset;
+import com.google.common.collect.Multiset;
 import org.ethelred.util.Args4jBoilerplate;
 import org.kohsuke.args4j.Option;
 
@@ -46,11 +48,14 @@ public class SymbolOpt extends Args4jBoilerplate
 
             _generateInitialPopulation();
 
-            Comparator<Individual> comparing = Comparator.comparing(Individual::score).reversed();
+            Comparator<Individual> comparing = Comparator.comparing(Individual::score);
             for (int i = 0; i < generations; i++)
             {
                 Collections.sort(population, comparing);
-
+                if(isVerbose())
+                {
+                    System.err.println(population.get(0).score());
+                }
                 _repopulate();
             }
 
@@ -73,17 +78,25 @@ public class SymbolOpt extends Args4jBoilerplate
 
     private void _repopulate()
     {
+        if(population.size() > populationSize)
+        {
+            population.subList(populationSize - 1, population.size()).clear();
+        }
         int halfIndex = (population.size() / 2);
-        population.subList(0, halfIndex).clear();
+        population.subList(halfIndex, population.size()).clear();
         for (int i = 0; i < (halfIndex - 1); i += 2)
         {
             population.add(
                     population.get(i).cross(population.get(i+1), random::nextBoolean)
             );
         }
-        for (int i = 0; population.size() < populationSize; i++)
+        for (int i = 0; i < halfIndex; i++)
         {
-            population.add(population.get(i).mutate(()->random.nextBoolean() ? 1 : -1));
+            population.add(population.get(i).mutate(()->random.nextInt(5) - 2));
+        }
+        for( int i = 0; i < halfIndex; i++)
+        {
+            population.add(new Individual(symbols, ()->random.nextInt(20), this::_calculateScore));
         }
     }
 
@@ -92,17 +105,17 @@ public class SymbolOpt extends Args4jBoilerplate
         population = new ArrayList<>(populationSize);
         for (int i = 0; i < populationSize; i++)
         {
-            population.add(new Individual(symbols, ()->random.nextInt(100), this::_calculateScore));
+            population.add(new Individual(symbols, ()->random.nextInt(20), this::_calculateScore));
         }
     }
 
     private double _calculateScore(Map<Symbol, Integer> symbolIntegerMap)
     {
-        int sum = 0;
+        double sum = 0;
         for (Constraint e:
                 constraints)
         {
-            sum += Math.pow(e.calculateScore(symbolIntegerMap), 2);
+            sum += e.calculateScore(symbolIntegerMap) * e.getWeight();
         }
         return sum;
     }
@@ -111,6 +124,8 @@ public class SymbolOpt extends Args4jBoilerplate
     {
         constraints = new HashSet<>();
         symbols = new TreeSet<>();
+
+        Multiset<Symbol> checkSymbolUniques = HashMultiset.create();
         Files.lines(datafile, StandardCharsets.UTF_8)
                 .filter(Objects::nonNull)
                 .map(this::_removeComments)
@@ -121,8 +136,15 @@ public class SymbolOpt extends Args4jBoilerplate
                     {
                         constraints.add(e);
                         symbols.addAll(e.distinctSymbols());
+                        checkSymbolUniques.addAll(e.distinctSymbols());
                     }
                 });
+
+        for (Multiset.Entry<Symbol> e:
+                checkSymbolUniques.entrySet())
+        {
+            constraints.add(new UniqueSymbol(e.getElement(), e.getCount()));
+        }
     }
 
     private Constraint _constraintFromLine(String line)

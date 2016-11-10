@@ -24,19 +24,25 @@ public class Ordering implements Constraint
         return new HashSet<>(valuesInOrder);
     }
 
-    public int calculateScore(Map<Symbol, Integer> symbolIntegerMap)
+    public double calculateScore(Map<Symbol, Integer> symbolIntegerMap)
     {
         int sum = 0;
-        int max = 0;
+        int min = 0;
         for (int i = 1; i < valuesInOrder.size(); i++)
         {
-            max = Math.max(symbolIntegerMap.get(valuesInOrder.get(i-1)), max);
+            min = Math.min(symbolIntegerMap.get(valuesInOrder.get(i-1)), min);
             int current = symbolIntegerMap.get(valuesInOrder.get(i));
-            if(current > max)
+            if(current > min)
             {
-                sum += current - max;
+                sum += current - min;
             }
         }
         return sum;
+    }
+
+    @Override
+    public double getWeight()
+    {
+        return 1;
     }
 }
