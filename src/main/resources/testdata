@@ -50,3 +50,14 @@
 # Codex Harlequins
 75 vehicle skimmer fast opentopped bs4 front10 side10 rear10 hp2 haywire_cannon shuriken_cannon shuriken_cannon holo_fields mirage_launchers fear #Voidweaver
 70 vehicle skimmer fast opentopped bs4 front10 side10 rear10 hp2 shuriken_cannon shuriken_cannon holo_fields mirage_launchers fear transport6 #Starweaver
+
+# Codex Craftworlds
+> twin_linked_shuriken_cannon shuriken_cannon
+110 vehicle tank fast skimmer transport12 bs4 front12 side12 rear10 hp3 twin_linked_shuriken_cannon twin_linked_shuriken_catapult serpent_shield accessrear #Wave Serpent
+140 vehicle flyer bs4 front10 side10 rear10 hp3 bright_lance bright_lance pulse_laser vector_dancer skyhunter #Crimson Hunter
+40 vehicle opentopped skimmer fast bs4 front10 side10 rear10 hp2 shuriken_cannon twin_linked_shuriken_catapult #Vyper base
+185 vehicle flyer bs4 front10 side10 rear10 hp3 heavy_dsycthe heavy_dsycthe mindshock_pod spirit_stones psyker2 vector_dancer #Hemlock Wraithfighter
+125 vehicle tank fast skimmer transport6 bs4 front12 side12 rear10 hp3 pulse_laser shuriken_cannon twin_linked_shuriken_catapult accessrear #Falcon
+125 vehicle tank fast skimmer bs4 front12 side12 rear10 hp3 prism_cannon twin_linked_shuriken_catapult accessrear #Fire Prism
+100 vehicle tank fast skimmer bs4 front12 side12 rear10 hp3 doomweaver twin_linked_shuriken_catapult accessrear #Night Spinner
+60 vehicle walker opentopped bs4 front10 side10 rear10 hp2 ws4 s5 i5 a2 shuriken_cannon shuriken_cannon power_field ancient_doom battle_focus fleet scout #War Walker
