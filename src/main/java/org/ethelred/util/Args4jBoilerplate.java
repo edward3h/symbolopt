@@ -5,9 +5,11 @@ import com.google.common.io.ByteStreams;
 import org.kohsuke.args4j.CmdLineException;
 import org.kohsuke.args4j.CmdLineParser;
 import org.kohsuke.args4j.Option;
+import org.kohsuke.args4j.OptionHandlerFilter;
 import org.kohsuke.args4j.spi.OptionHandler;
 
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 
 /**
  * Created by edward on 11/8/16.
@@ -88,7 +90,7 @@ public abstract class Args4jBoilerplate
         }
         System.err.println();
         // print the list of available options
-        parser.printUsage(System.err);
+        parser.printUsage(new OutputStreamWriter(System.err), null, OptionHandlerFilter.ALL);
         System.err.println();
     }
 

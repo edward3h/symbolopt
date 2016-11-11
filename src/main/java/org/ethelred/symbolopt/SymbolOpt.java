@@ -35,6 +35,24 @@ public class SymbolOpt extends Args4jBoilerplate
     @Option(name = "--data", required = true, usage = "Path to data file")
     private Path datafile;
 
+    @Option(name = "--weight-equation", usage = "Weight for summing constraint")
+    private void setWeightEquation(double value)
+    {
+        Equation.setWeight(value);
+    }
+
+    @Option(name = "--weight-unique", usage = "Weight for uniqueness constraint")
+    private void setWeightUnique(double value)
+    {
+        UniqueSymbol.setWeight(value);
+    }
+
+    @Option(name = "--weight-order", usage = "Weight for ordering constraint")
+    private void setWeightOrder(double value)
+    {
+        Ordering.setWeight(value);
+    }
+
     private Set<Constraint> constraints;
     private Set<Symbol> symbols;
     private List<Individual> population;

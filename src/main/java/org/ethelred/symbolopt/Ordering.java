@@ -12,10 +12,16 @@ import java.util.Map;
 public class Ordering implements Constraint
 {
     private final ImmutableList<Symbol> valuesInOrder;
+    private static double weight = 1.0D;
 
     public Ordering(Iterable<? extends Symbol> symbols)
     {
         valuesInOrder = ImmutableList.copyOf(symbols);
+    }
+
+    public static void setWeight(double weight)
+    {
+        Ordering.weight = weight;
     }
 
     @Override
@@ -43,6 +49,6 @@ public class Ordering implements Constraint
     @Override
     public double getWeight()
     {
-        return 1;
+        return weight;
     }
 }

@@ -11,14 +11,20 @@ import java.util.Map;
  */
 public class Equation implements Constraint
 {
-    private final int result;
+    private final double result;
     private final Multiset<Symbol> symbols;
+    private static double weight = 1.0D;
 
     public Equation(int result, Iterable<? extends Symbol> symbols)
     {
         this.result = result;
         this.symbols = HashMultiset.create(symbols);
 
+    }
+
+    public static void setWeight(double weight)
+    {
+        Equation.weight = weight;
     }
 
     public Collection<? extends Symbol> distinctSymbols()
@@ -28,7 +34,7 @@ public class Equation implements Constraint
 
     public double calculateScore(Map<Symbol, Integer> symbolIntegerMap)
     {
-        int sum = 0;
+        double sum = 0;
         for (Symbol symbol: symbols)
         {
             sum += symbolIntegerMap.get(symbol);
@@ -39,6 +45,6 @@ public class Equation implements Constraint
     @Override
     public double getWeight()
     {
-        return 1;
+        return weight;
     }
 }

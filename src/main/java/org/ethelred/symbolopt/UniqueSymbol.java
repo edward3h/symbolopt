@@ -10,11 +10,17 @@ public class UniqueSymbol implements Constraint
 {
     private final Symbol value;
     private final int divisor;
+    private static double weight = 1.0D;
 
     public UniqueSymbol(Symbol symbol, int count)
     {
         this.value = symbol;
         this.divisor = count * count;
+    }
+
+    public static void setWeight(double weight)
+    {
+        UniqueSymbol.weight = weight;
     }
 
     @Override
@@ -32,6 +38,6 @@ public class UniqueSymbol implements Constraint
     @Override
     public double getWeight()
     {
-        return 1;
+        return weight;
     }
 }
