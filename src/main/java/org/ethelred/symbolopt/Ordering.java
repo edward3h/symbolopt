@@ -30,14 +30,14 @@ public class Ordering implements Constraint
         return new HashSet<>(valuesInOrder);
     }
 
-    public double calculateScore(Map<Symbol, Integer> symbolIntegerMap)
+    public double calculateScore(Map<Symbol, Double> symbolMap)
     {
-        int sum = 0;
-        int min = 0;
+        double sum = 0;
+        double min = 0;
         for (int i = 1; i < valuesInOrder.size(); i++)
         {
-            min = Math.min(symbolIntegerMap.get(valuesInOrder.get(i-1)), min);
-            int current = symbolIntegerMap.get(valuesInOrder.get(i));
+            min = Math.min(symbolMap.get(valuesInOrder.get(i-1)), min);
+            double current = symbolMap.get(valuesInOrder.get(i));
             if(current > min)
             {
                 sum += current - min;
