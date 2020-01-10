@@ -2,7 +2,7 @@ package org.ethelred.symbolopt;
 
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
-import org.ethelred.util.Args4jBoilerplate;
+import org.ethelred.args4jboilerplate.Args4jBoilerplate;
 import org.kohsuke.args4j.Option;
 
 import java.io.IOException;
