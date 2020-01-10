@@ -56,7 +56,7 @@ public class SymbolOpt extends Args4jBoilerplate
     private Set<Constraint> constraints;
     private Set<Symbol> symbols;
     private List<Individual> population;
-    private Random random = new Random();
+    private final Random random = new Random();
 
     void run()
     {
@@ -127,13 +127,13 @@ public class SymbolOpt extends Args4jBoilerplate
         }
     }
 
-    private double _calculateScore(Map<Symbol, Integer> symbolIntegerMap)
+    private double _calculateScore(Map<Symbol, Double> symbolMap)
     {
         double sum = 0;
         for (Constraint e:
                 constraints)
         {
-            sum += e.calculateScore(symbolIntegerMap) * e.getWeight();
+            sum += e.calculateScore(symbolMap) * e.getWeight();
         }
         return sum;
     }

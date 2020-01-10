@@ -10,7 +10,7 @@ public interface Constraint
 {
     Collection<? extends Symbol> distinctSymbols();
 
-    double calculateScore(Map<Symbol, Integer> symbolIntegerMap);
+    double calculateScore(Map<Symbol, Double> symbolMap);
 
     double getWeight();
 }

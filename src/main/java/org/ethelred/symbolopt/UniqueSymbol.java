@@ -9,7 +9,7 @@ import java.util.Map;
 public class UniqueSymbol implements Constraint
 {
     private final Symbol value;
-    private final int divisor;
+    private final double divisor;
     private static double weight = 1.0D;
 
     public UniqueSymbol(Symbol symbol, int count)
@@ -30,9 +30,9 @@ public class UniqueSymbol implements Constraint
     }
 
     @Override
-    public double calculateScore(Map<Symbol, Integer> symbolIntegerMap)
+    public double calculateScore(Map<Symbol, Double> symbolMap)
     {
-        return Math.abs(((double) symbolIntegerMap.get(value)) / divisor);
+        return Math.abs(symbolMap.get(value) / divisor);
     }
 
     @Override

@@ -15,7 +15,7 @@ public class Equation implements Constraint
     private final Multiset<Symbol> symbols;
     private static double weight = 1.0D;
 
-    public Equation(int result, Iterable<? extends Symbol> symbols)
+    public Equation(double result, Iterable<? extends Symbol> symbols)
     {
         this.result = result;
         this.symbols = HashMultiset.create(symbols);
@@ -32,12 +32,12 @@ public class Equation implements Constraint
         return symbols.elementSet();
     }
 
-    public double calculateScore(Map<Symbol, Integer> symbolIntegerMap)
+    public double calculateScore(Map<Symbol, Double> symbolMap)
     {
         double sum = 0;
         for (Symbol symbol: symbols)
         {
-            sum += symbolIntegerMap.get(symbol);
+            sum += symbolMap.get(symbol);
         }
         return Math.abs(result - sum);
     }
