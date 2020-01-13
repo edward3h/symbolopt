@@ -1,10 +1,10 @@
 package org.ethelred.symbolopt;
 
-import com.google.common.collect.HashMultiset;
-import com.google.common.collect.Multiset;
+import com.google.common.collect.ImmutableSet;
 
 import java.util.Collection;
-import java.util.Map;
+import java.util.Set;
+import java.util.function.ToDoubleFunction;
 
 /**
  * Created by edward on 11/8/16.
@@ -12,13 +12,13 @@ import java.util.Map;
 public class Equation implements Constraint
 {
     private final double result;
-    private final Multiset<Symbol> symbols;
+    private final Set<Symbol> symbols;
     private static double weight = 1.0D;
 
-    public Equation(double result, Iterable<? extends Symbol> symbols)
+    public Equation(double result, Iterable<Symbol> symbols)
     {
         this.result = result;
-        this.symbols = HashMultiset.create(symbols);
+        this.symbols = ImmutableSet.copyOf(symbols);
 
     }
 
@@ -27,17 +27,17 @@ public class Equation implements Constraint
         Equation.weight = weight;
     }
 
-    public Collection<? extends Symbol> distinctSymbols()
+    public Collection<Symbol> distinctSymbols()
     {
-        return symbols.elementSet();
+        return symbols;
     }
 
-    public double calculateScore(Map<Symbol, Double> symbolMap)
+    public double calculateScore(ToDoubleFunction<Symbol> symbolValueAccessor)
     {
         double sum = 0;
         for (Symbol symbol: symbols)
         {
-            sum += symbolMap.get(symbol);
+            sum += symbolValueAccessor.applyAsDouble(symbol);
         }
         return Math.abs(result - sum);
     }

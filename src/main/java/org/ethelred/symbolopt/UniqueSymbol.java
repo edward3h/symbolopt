@@ -1,20 +1,20 @@
 package org.ethelred.symbolopt;
 
 import java.util.Collection;
-import java.util.Map;
+import java.util.function.ToDoubleFunction;
 
 /**
  * Created by edward on 11/9/16.
  */
 public class UniqueSymbol implements Constraint
 {
-    private final Symbol value;
+    private final Symbol symbol;
     private final double divisor;
     private static double weight = 1.0D;
 
     public UniqueSymbol(Symbol symbol, int count)
     {
-        this.value = symbol;
+        this.symbol = symbol;
         this.divisor = count * count;
     }
 
@@ -24,15 +24,15 @@ public class UniqueSymbol implements Constraint
     }
 
     @Override
-    public Collection<? extends Symbol> distinctSymbols()
+    public Collection<Symbol> distinctSymbols()
     {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public double calculateScore(Map<Symbol, Double> symbolMap)
+    public double calculateScore(ToDoubleFunction<Symbol> symbolValueAccessor)
     {
-        return Math.abs(symbolMap.get(value) / divisor);
+        return Math.abs(symbolValueAccessor.applyAsDouble(symbol) / divisor);
     }
 
     @Override

@@ -4,7 +4,7 @@ import com.google.common.collect.ImmutableList;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Map;
+import java.util.function.ToDoubleFunction;
 
 /**
  * Created by edward on 11/9/16.
@@ -25,19 +25,19 @@ public class Ordering implements Constraint
     }
 
     @Override
-    public Collection<? extends Symbol> distinctSymbols()
+    public Collection<Symbol> distinctSymbols()
     {
         return new HashSet<>(valuesInOrder);
     }
 
-    public double calculateScore(Map<Symbol, Double> symbolMap)
+    public double calculateScore(ToDoubleFunction<Symbol> symbolValueAccessor)
     {
         double sum = 0;
         double min = 0;
         for (int i = 1; i < valuesInOrder.size(); i++)
         {
-            min = Math.min(symbolMap.get(valuesInOrder.get(i-1)), min);
-            double current = symbolMap.get(valuesInOrder.get(i));
+            min = Math.min(symbolValueAccessor.applyAsDouble(valuesInOrder.get(i-1)), min);
+            double current = symbolValueAccessor.applyAsDouble(valuesInOrder.get(i));
             if(current > min)
             {
                 sum += current - min;

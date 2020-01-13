@@ -15,11 +15,11 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
+import java.util.function.ToDoubleFunction;
 import java.util.stream.Collectors;
 
 /**
@@ -127,13 +127,13 @@ public class SymbolOpt extends Args4jBoilerplate
         }
     }
 
-    private double _calculateScore(Map<Symbol, Double> symbolMap)
+    private double _calculateScore(ToDoubleFunction<Symbol> symbolValueAccessor)
     {
         double sum = 0;
         for (Constraint e:
                 constraints)
         {
-            sum += e.calculateScore(symbolMap) * e.getWeight();
+            sum += e.calculateScore(symbolValueAccessor) * e.getWeight();
         }
         return sum;
     }

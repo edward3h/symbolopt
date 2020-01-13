@@ -16,11 +16,11 @@ import java.util.function.ToDoubleFunction;
 public class Candidate
 {
     private final SortedMap<Symbol, Double> values;
-    private final ToDoubleFunction<Map<Symbol, Double>> scoreCallback;
+    private final ToDoubleFunction<ToDoubleFunction<Symbol>> scoreCallback;
     private boolean scoreCalculated = false;
     private double scoreMemo;
 
-    public Candidate(Set<Symbol> symbols, DoubleSupplier doubleSupplier, ToDoubleFunction<Map<Symbol, Double>> scoreCallback)
+    public Candidate(Set<Symbol> symbols, DoubleSupplier doubleSupplier, ToDoubleFunction<ToDoubleFunction<Symbol>> scoreCallback)
     {
         values = new TreeMap<>();
         for(Symbol symbol: symbols)
@@ -30,7 +30,7 @@ public class Candidate
         this.scoreCallback = scoreCallback;
     }
 
-    private Candidate(SortedMap<Symbol, Double> values, ToDoubleFunction<Map<Symbol, Double>> scoreCallback)
+    private Candidate(SortedMap<Symbol, Double> values, ToDoubleFunction<ToDoubleFunction<Symbol>> scoreCallback)
     {
         this.values = values;
         this.scoreCallback = scoreCallback;
@@ -40,7 +40,7 @@ public class Candidate
     {
         if(!scoreCalculated)
         {
-            scoreMemo = scoreCallback.applyAsDouble(values);
+            scoreMemo = scoreCallback.applyAsDouble(values::get);
             scoreCalculated = true;
         }
         return scoreMemo;

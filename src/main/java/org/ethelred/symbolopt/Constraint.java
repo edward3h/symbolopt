@@ -1,16 +1,16 @@
 package org.ethelred.symbolopt;
 
 import java.util.Collection;
-import java.util.Map;
+import java.util.function.ToDoubleFunction;
 
 /**
  * Created by edward on 11/9/16.
  */
 public interface Constraint
 {
-    Collection<? extends Symbol> distinctSymbols();
+    Collection<Symbol> distinctSymbols();
 
-    double calculateScore(Map<Symbol, Double> symbolMap);
+    double calculateScore(ToDoubleFunction<Symbol> symbolValueAccessor);
 
     double getWeight();
 }

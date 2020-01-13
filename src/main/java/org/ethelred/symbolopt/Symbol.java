@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * Created by edward on 11/8/16.
  */
-public class Symbol implements Comparable<Symbol>
+public final class Symbol implements Comparable<Symbol>
 {
     private final String value;
 
