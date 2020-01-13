@@ -55,7 +55,7 @@ public class SymbolOpt extends Args4jBoilerplate
 
     private Set<Constraint> constraints;
     private Set<Symbol> symbols;
-    private List<Individual> population;
+    private List<Candidate> population;
     private final Random random = new Random();
 
     void run()
@@ -66,7 +66,7 @@ public class SymbolOpt extends Args4jBoilerplate
 
             _generateInitialPopulation();
 
-            Comparator<Individual> comparing = Comparator.comparing(Individual::score);
+            Comparator<Candidate> comparing = Comparator.comparing(Candidate::score);
             for (int i = 0; i < generations; i++)
             {
                 Collections.sort(population, comparing);
@@ -114,7 +114,7 @@ public class SymbolOpt extends Args4jBoilerplate
         }
         for( int i = 0; i < halfIndex; i++)
         {
-            population.add(new Individual(symbols, ()->random.nextInt(20), this::_calculateScore));
+            population.add(new Candidate(symbols, ()->random.nextInt(20), this::_calculateScore));
         }
     }
 
@@ -123,7 +123,7 @@ public class SymbolOpt extends Args4jBoilerplate
         population = new ArrayList<>(populationSize);
         for (int i = 0; i < populationSize; i++)
         {
-            population.add(new Individual(symbols, ()->random.nextInt(20), this::_calculateScore));
+            population.add(new Candidate(symbols, ()->random.nextInt(20), this::_calculateScore));
         }
     }
 

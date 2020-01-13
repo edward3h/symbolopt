@@ -8,20 +8,19 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 import java.util.function.BooleanSupplier;
 import java.util.function.DoubleSupplier;
-import java.util.function.IntSupplier;
 import java.util.function.ToDoubleFunction;
 
 /**
  * Created by edward on 11/8/16.
  */
-public class Individual
+public class Candidate
 {
     private final SortedMap<Symbol, Double> values;
     private final ToDoubleFunction<Map<Symbol, Double>> scoreCallback;
     private boolean scoreCalculated = false;
     private double scoreMemo;
 
-    public Individual(Set<Symbol> symbols, DoubleSupplier doubleSupplier, ToDoubleFunction<Map<Symbol, Double>> scoreCallback)
+    public Candidate(Set<Symbol> symbols, DoubleSupplier doubleSupplier, ToDoubleFunction<Map<Symbol, Double>> scoreCallback)
     {
         values = new TreeMap<>();
         for(Symbol symbol: symbols)
@@ -31,7 +30,7 @@ public class Individual
         this.scoreCallback = scoreCallback;
     }
 
-    private Individual(SortedMap<Symbol, Double> values, ToDoubleFunction<Map<Symbol, Double>> scoreCallback)
+    private Candidate(SortedMap<Symbol, Double> values, ToDoubleFunction<Map<Symbol, Double>> scoreCallback)
     {
         this.values = values;
         this.scoreCallback = scoreCallback;
@@ -55,7 +54,7 @@ public class Individual
                 .toString();
     }
 
-    public Individual cross(Individual other, BooleanSupplier booleanSupplier)
+    public Candidate cross(Candidate other, BooleanSupplier booleanSupplier)
     {
         SortedMap<Symbol, Double> mixedMap = new TreeMap<>();
         for(Symbol k: values.keySet())
@@ -69,16 +68,16 @@ public class Individual
                 mixedMap.put(k, other.values.get(k));
             }
         }
-        return new Individual(mixedMap, scoreCallback);
+        return new Candidate(mixedMap, scoreCallback);
     }
 
-    public Individual mutate(DoubleSupplier doubleSupplier)
+    public Candidate mutate(DoubleSupplier doubleSupplier)
     {
         SortedMap<Symbol, Double> mixedMap = new TreeMap<>();
         for(Map.Entry<Symbol, Double> entry: values.entrySet())
         {
             mixedMap.put(entry.getKey(), entry.getValue() + doubleSupplier.getAsDouble());
         }
-        return new Individual(mixedMap, scoreCallback);
+        return new Candidate(mixedMap, scoreCallback);
     }
 }
